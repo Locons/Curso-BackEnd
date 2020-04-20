@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Session', {
+    return queryInterface.createTable('session', {
       sid: {
         primaryKey: true,
         type: Sequelize.STRING
@@ -18,6 +18,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Session');
+    return queryInterface.dropTable('session');
   }
 };
