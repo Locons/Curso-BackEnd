@@ -19,11 +19,17 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(MO('_method'));
 app.set('view engine','pug');
 
-app.use(session({
+let sessionConfig = {
     secret: ['123', '2345'],
     saveUninitialized: false,
     resave: false
-}));
+};
+
+if (process.env.NODE_ENV && process.env.NODE_ENV == 'production'){
+    sessionConfig['store'] = new (require('connect-pg-simple')(session))();
+}
+
+app.use(session(sessionConfig));
 app.use(findUser);
 app.use(authUser);
 app.use(taskRoutes);
