@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
 
     Task.belongsToMany(models.Category,{
       through: 'TaskCategories',
-      as: 'categories'
+      as: 'categories',
+      foreignKey: 'categoryId'
     })
   };
 
