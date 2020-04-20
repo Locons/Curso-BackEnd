@@ -1,0 +1,9 @@
+doctype html
+html
+    head
+    title Tareas
+    body
+        form(action=`/tasks/${task.id}?_method=PUT` method="POST")
+            input(type="text" name="categories" placeholder="ID de categorias")
+            textarea(name="des" placeholder='Escribe aquí')= task.des
+            input(type="submit" value="Guardar")
